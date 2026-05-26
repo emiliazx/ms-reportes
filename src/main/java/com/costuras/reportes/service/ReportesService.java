@@ -18,26 +18,24 @@ public class ReportesService {
     private final VentaClient ventaClient;
 
     /**
-     * Punto de entrada único.
-     * Hace UNA llamada a MS-Venta y calcula los 4 reportes en memoria.
-     *
+    
      * @param bearerToken token JWT del ADMIN (se reenvía a MS-Venta)
      * @param desde       fecha inicio
      * @param hasta       fecha fin
      */
     public ReporteResponse generarReporte(String bearerToken, LocalDate desde, LocalDate hasta) {
 
-        // ── 1. Obtener datos desde MS-Venta ────────────────────────────────
+      
         List<VentaInternaResponse> ventas = ventaClient.getVentasEnRango(bearerToken, desde, hasta);
 
-        // ── 2. Total ingresos (solo PAGADAS) ───────────────────────────────
+        
         BigDecimal totalIngresos = ventas.stream()
                 .filter(v -> "PAGADA".equals(v.getEstado()))
                 .map(VentaInternaResponse::getTotal)
                 .filter(Objects::nonNull)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        // ── 3. Ventas por día ──────────────────────────────────────────────
+       
         Map<String, ReporteResponse.ResumenDia> ventasPorDia = ventas.stream()
                 .collect(Collectors.groupingBy(
                         v -> v.getFecha().toLocalDate().toString(),
@@ -55,8 +53,7 @@ public class ReportesService {
                         )
                 ));
 
-        // ── 4. Productos más vendidos ──────────────────────────────────────
-        // Aplanar todos los items de todas las ventas y agrupar por idProducto
+        
         Map<String, long[]> acumuladoPorProducto = new HashMap<>();
 
         for (VentaInternaResponse venta : ventas) {
@@ -73,7 +70,7 @@ public class ReportesService {
             }
         }
 
-        // Calcular ingreso por producto (cant * precio)
+      
         Map<String, BigDecimal> ingresoPorProducto = new HashMap<>();
         for (VentaInternaResponse venta : ventas) {
             if (venta.getItems() == null) continue;
@@ -94,14 +91,14 @@ public class ReportesService {
                 .sorted(Comparator.comparingLong(ReporteResponse.ProductoVendido::getCantidadTotal).reversed())
                 .toList();
 
-        // ── 5. Distribución por estado ─────────────────────────────────────
+      
         Map<String, Long> distribucionEstados = ventas.stream()
                 .collect(Collectors.groupingBy(
                         v -> v.getEstado() != null ? v.getEstado() : "DESCONOCIDO",
                         Collectors.counting()
                 ));
 
-        // ── 6. Armar respuesta ─────────────────────────────────────────────
+       
         return ReporteResponse.builder()
                 .desde(desde)
                 .hasta(hasta)
