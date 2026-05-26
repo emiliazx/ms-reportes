@@ -29,7 +29,7 @@ public class VentaInternaResponse {
     @AllArgsConstructor
     public static class ItemVentaDto {
         private String idProducto;
-        private Integer cant;
+        private Integer cantidad;
         private BigDecimal precio;
     }
 }

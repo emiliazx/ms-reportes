@@ -64,7 +64,7 @@ public class ReportesService {
             for (VentaInternaResponse.ItemVentaDto item : venta.getItems()) {
                 acumuladoPorProducto.merge(
                         item.getIdProducto(),
-                        new long[]{item.getCant()},
+                        new long[]{item.getCantidad()},
                         (existing, nuevo) -> {
                             existing[0] += nuevo[0];
                             return existing;
@@ -79,7 +79,7 @@ public class ReportesService {
             if (venta.getItems() == null) continue;
             for (VentaInternaResponse.ItemVentaDto item : venta.getItems()) {
                 BigDecimal subtotal = item.getPrecio()
-                        .multiply(BigDecimal.valueOf(item.getCant()));
+                        .multiply(BigDecimal.valueOf(item.getCantidad()));
                 ingresoPorProducto.merge(item.getIdProducto(), subtotal, BigDecimal::add);
             }
         }
