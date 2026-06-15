@@ -21,7 +21,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                // Solo ADMIN puede acceder a cualquier endpoint de reportes
+                
                 .anyRequest().permitAll()
             )
             .sessionManagement(sm ->

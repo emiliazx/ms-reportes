@@ -28,9 +28,7 @@ public class VentaClient {
             .registerModule(new JavaTimeModule());
 
     /**
-     * Consulta el endpoint interno de MS-Venta con el token JWT del ADMIN.
-     * MS-Venta valida el token por su cuenta — nunca se expone sin auth.
-     *
+   
      * @param bearerToken  "Bearer eyJhbG..."  (se reenvía tal cual)
      * @param desde        fecha inicio del rango
      * @param hasta        fecha fin del rango

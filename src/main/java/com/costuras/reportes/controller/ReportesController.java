@@ -16,17 +16,7 @@ public class ReportesController {
 
     private final ReportesService reportesService;
 
-    /**
-     * GET /reportes?desde=2025-01-01&hasta=2025-12-31
-     *
-     * Requiere: Authorization: Bearer <token ADMIN>
-     *
-     * Devuelve en una sola respuesta:
-     *  - totalIngresos       (solo ventas PAGADAS)
-     *  - ventasPorDia        (mapa fecha → resumen)
-     *  - productosMasVendidos (ranking por cantidad)
-     *  - distribucionEstados  (PAGADA / PENDIENTE / CANCELADA)
-     */
+    
     @GetMapping
     public ResponseEntity<ReporteResponse> getReporte(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate desde,

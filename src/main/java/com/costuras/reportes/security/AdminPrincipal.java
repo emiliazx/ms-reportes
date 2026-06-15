@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * Representa al ADMIN autenticado extraído del JWT.
- * Queda en el SecurityContext para que los servicios lo consuman.
- */
+
 @Data
 @Builder
 @NoArgsConstructor

@@ -47,7 +47,7 @@ public class JwtUtil {
     }
 
     public String getRoleFromToken(String token) {
-        // MS-Auth guarda el rol como claim en el token
+       
         return getClaim(token, claims -> claims.get("role", String.class));
     }
 

@@ -22,9 +22,9 @@ import java.util.List;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtUtil jwtUtil;
-    private final HandlerExceptionResolver exceptionResolver; // <- Faltaba declarar esta variable global
+    private final HandlerExceptionResolver exceptionResolver; 
 
-    // Constructor manual corregido con ambas dependencias e inyección limpia
+    
     public JwtAuthenticationFilter(
         JwtUtil jwtUtil, 
         @Qualifier("handlerExceptionResolver") HandlerExceptionResolver exceptionResolver
