@@ -1,0 +1,12 @@
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/ReportesApplication.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/client/VentaClient.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/controller/ReportesController.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/dto/ReporteResponse.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/dto/VentaInternaResponse.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/excepciones/AppExceptionHandler.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/security/AdminPrincipal.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/security/JwtAuthenticationFilter.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/security/JwtUtil.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/security/SecurityConfig.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/service/ReportesService.java
+/Users/cristianvargas/Downloads/proyecto-2/reportes/src/main/java/com/costuras/reportes/swagger/SwaggerConfig.java
